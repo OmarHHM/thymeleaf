@@ -110,5 +110,10 @@ public class UsuarioController {
 		return modelAndView;
 	}
 	
-
+	@RequestMapping(value={"/", "/register"}, method = RequestMethod.GET)
+	public ModelAndView register(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("admin/register");
+		return modelAndView;
+	}
 }
