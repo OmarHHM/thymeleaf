@@ -1,14 +1,36 @@
 package com.curso.alumnos.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="empresa")
 public class Empresa {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private long id;
 	
-	public long id;
-	public String nombre;
-	public String descripcion;
-	public String rfc;
-	public String razonSocial;
-	public String urlSitio;
+	@Column(name = "nombre")
+	private String nombre;
+
+	@Column(name = "descripcion")
+	private String descripcion;
+
+	@Column(name = "rfc")
+	private String rfc;
+	
+	@Column(name = "razonSocial")
+	private String razonSocial;
+
+	@Column(name = "urlSitio")
+	private String urlSitio;
+	
 	public long getId() {
 		return id;
 	}

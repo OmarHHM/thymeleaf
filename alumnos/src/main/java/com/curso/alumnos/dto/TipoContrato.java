@@ -2,8 +2,8 @@ package com.curso.alumnos.dto;
 
 public class TipoContrato {
 
-	public int id;
-	public String descripcion;
+	private int id;
+	private String descripcion;
 	public int getId() {
 		return id;
 	}

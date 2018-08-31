@@ -1,15 +1,34 @@
 package com.curso.alumnos.dto;
 
-public class Reclutador {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-		public long id;
-		public String nombre;
-		public String apellido_materno;
-		public String apellido_paterno;
-		public long id_emp;
-		public String es_independiente;
-		public String foto;
+@Entity
+@Table(name="reclutador")
+public class Reclutador {
+		@Id
+		@GeneratedValue(strategy = GenerationType.AUTO)
+		@Column(name = "id")
+		private long id;
+		@Column(name = "nombre", length=50, nullable=false)
+		private String nombre;
+		@Column(name = "apellido_materno", length=60)
+		private String apellido_materno;
+		@Column(name = "apellido_paterno", length=60, nullable=false)
+		private String apellido_paterno;
+		@Column(name = "id_emp")
+		private long id_emp;
+		@Column(name = "es_independiente")
+		private String es_independiente;
+		@Column(name = "foto")
+		private String foto;
 		
+		@Column(name = "telefono", length=10, nullable=false)
+		private String telefono;
 		
 		public long getId() {
 			return id;

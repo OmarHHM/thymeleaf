@@ -13,8 +13,10 @@ public class UsuarioDto {
 	private String apellido2;
 	
 	private String email;
+	private String perfil;
 	
 	private RolDto rol;
+	
 	
 	public String getNombre() {
 		return nombre;
@@ -70,6 +72,14 @@ public class UsuarioDto {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
 	}
 	
 	

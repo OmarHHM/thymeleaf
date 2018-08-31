@@ -1,21 +1,54 @@
 package com.curso.alumnos.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="datos_candidato")
 public class DatosCandidato {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private long id;
+	
+	@Column(name="id_candidato")
+	private long idCandidato;
+	
+	@Column(name="disponibilidad")
+	private String disponibleVaiaje;
+	
+	@Column(name="reubicacion")
+	private String reubicacion;
+	
+	@Column(name="estatus")
+	private String estatusTrabajo;
+	
+	@Column(name="idRango")
+	private int idRangoSalarial;
 
-	public long id;
-	public long idCandidato;
-	public String disponibleVaiaje;
-	public String reubicacion;
-	public String estatusTrabajo;
-	public int idRangoSalarial;
-	public String razonCambio;
+	@Column(name="razonCambio")
+	private String razonCambio;
+	@Column(name="urlFacebook")
+	private String urlFacebook;
 
-	public String urlFacebook;
-	public String urlLinkedin;
-	public String urlYoutube;
-	public String urlPaginaPersonal;
-	public String urlOtros;
-	public int idArea;
+	@Column(name="urlLinkedin")
+	private String urlLinkedin;
+	
+	@Column(name="urlYoutube")
+	private String urlYoutube;
+	
+	@Column(name="urlPaginaPersonal")
+	private String urlPaginaPersonal;
+	
+	@Column(name="urlOtros")
+	private String urlOtros;
+	
+	@Column(name="id_area")
+	private int idArea;
 	public long getId() {
 		return id;
 	}

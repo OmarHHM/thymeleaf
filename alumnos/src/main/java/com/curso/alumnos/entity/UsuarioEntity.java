@@ -28,6 +28,9 @@ public class UsuarioEntity {
 	@Column(name = "email")
 	private String email;
 
+	@Column(name = "perfil")
+	private String perfil;
+	
 	@ManyToOne
 	@JoinColumn(name="rol_id")
 	private RolEntity rol;
@@ -94,6 +97,14 @@ public class UsuarioEntity {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
 	}
 		
 }

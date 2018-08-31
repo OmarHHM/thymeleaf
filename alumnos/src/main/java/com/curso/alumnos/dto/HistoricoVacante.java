@@ -1,10 +1,25 @@
 package com.curso.alumnos.dto;
 
-public class HistoricoVacante {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-		public long id;
-		public long vacanteId;
-		public String fechaCierre;
+@Entity
+@Table(name="historico_vacante")
+public class HistoricoVacante {
+		@Id
+		@GeneratedValue(strategy = GenerationType.AUTO)
+		@Column(name = "id")
+		private long id;
+		
+		@Column(name = "vacanteid")
+		private long vacanteId;
+		
+		@Column(name = "fechaCierre")
+		private String fechaCierre;
 		public long getId() {
 			return id;
 		}

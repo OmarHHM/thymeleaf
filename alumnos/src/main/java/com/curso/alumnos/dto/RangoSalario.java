@@ -1,9 +1,21 @@
 package com.curso.alumnos.dto;
 
-public class RangoSalario {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	public int id;
-	public String rango;
+@Entity
+@Table(name="rangoSalarial")
+public class RangoSalario {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private int id;
+	@Column(name = "rango")
+	private String rango;
 	public int getId() {
 		return id;
 	}

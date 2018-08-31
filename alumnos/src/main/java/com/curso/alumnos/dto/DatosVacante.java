@@ -1,15 +1,41 @@
 package com.curso.alumnos.dto;
 
-public class DatosVacante {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	public long id;
-	public String descripcion;
-	public long idEmp;
-	public long idReclut;
-	public int idRangoSalarial;
-	public String createDate;
-	public String dueDate;
-	public int idTipoContrato;
+@Entity
+@Table(name="datos_vacante")
+public class DatosVacante {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private long id;
+	
+	@Column(name="descripcion")
+	private String descripcion;
+	
+	@Column(name="idEmp")
+	private long idEmp;
+	
+	@Column(name="idReclut")
+	private long idReclut;
+	
+	@Column(name="idRango")
+	private int idRangoSalarial;
+	
+	@Column(name="fechaCreacion")
+	private String createDate;
+
+	@Column(name="fechaFinalizacion")
+	private String dueDate;
+
+	@Column(name="idTipoContrato")
+	private int idTipoContrato;
 	public long getId() {
 		return id;
 	}

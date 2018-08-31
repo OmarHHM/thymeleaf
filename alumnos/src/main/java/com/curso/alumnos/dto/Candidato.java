@@ -1,17 +1,44 @@
 package com.curso.alumnos.dto;
 
-public class Candidato {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	public long id;
-	public String nombre;
-	public String apellido_materno;
-	public String apellido_paterno;
-	public int edad;
-	public String domicilio;
-	public String genero;
-	public String foto;
+@Entity
+@Table(name="candidato")
+public class Candidato {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private long id;
 	
+	@Column(name = "nombre", length=50,nullable=false)
+	private String nombre;
 	
+	@Column(name = "apellido_materno", length=60)
+	private String apellido_materno;
+	
+	@Column(name = "apellido_paterno", length=60,nullable=false)
+	private String apellido_paterno;
+	
+	@Column(name = "edad")
+	private int edad;
+
+	@Column(name = "domicilio")
+	private String domicilio;
+
+	@Column(name = "genero")
+	private String genero;
+
+	@Column(name = "foto")
+	private String foto;
+	
+
+	@Column(name = "telefono", length=10,nullable=false)
+	private String telefono;
 	
 	public long getId() {
 		return id;
@@ -57,6 +84,12 @@ public class Candidato {
 	}
 	
 	
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
 	public String getFoto() {
 		return foto;
 	}
@@ -67,7 +100,7 @@ public class Candidato {
 	public String toString() {
 		return "Candidato [id=" + id + ", nombre=" + nombre + ", apellido_materno=" + apellido_materno
 				+ ", apellido_paterno=" + apellido_paterno + ", edad=" + edad + ", domicilio=" + domicilio + ", genero="
-				+ genero + ", foto=" + foto + "]";
+				+ genero + ", foto=" + foto + ", telefono=" + telefono + "]";
 	}
 
 
