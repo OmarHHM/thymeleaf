@@ -16,4 +16,6 @@ public interface UsuarioDao{
 	List<UsuarioDto> getUsuarios(Long rol_id);
 	
 	void deleteUsuario(String username);
+	
+	UsuarioDto findByEmail(String email);
 }

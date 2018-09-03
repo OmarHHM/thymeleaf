@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,23 +17,27 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.curso.alumnos.dto.RolDto;
 import com.curso.alumnos.dto.UsuarioDto;
+import com.curso.alumnos.service.UsuarioService;
 import com.curso.alumnos.service.impl.RolServiceImpl;
-import com.curso.alumnos.service.impl.UsuarioServiceImpl;
 
 
 @RestController
 public class UsuarioController {
 
 	@Autowired
-	private UsuarioServiceImpl usuarioService;
+	private UsuarioService usuarioService;
 
 	@Autowired
 	private RolServiceImpl rolService;
 	
 	@RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
-	public ModelAndView login(){
+	public ModelAndView login(@RequestParam (value="error",required = false) Boolean error){
 		ModelAndView modelAndView = new ModelAndView();
+		if(error!=null){
+			modelAndView.addObject("error", "Tu nombre de usuario y contraseña no coinciden.");
+		}
 		modelAndView.setViewName("login");
+		
 		return modelAndView;
 	}
 	
@@ -112,27 +115,46 @@ public class UsuarioController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value={"/", "/register"}, method = RequestMethod.GET)
-	public ModelAndView register(){
+	@RequestMapping(value={"/register"}, method = RequestMethod.GET)
+	public ModelAndView register(@RequestParam (value="error",required = false) String  error){
 		ModelAndView modelAndView = new ModelAndView();
+		if(error!=null && error.equals("1")){
+			modelAndView.addObject("errorMsg","El Usuario ya existe en el sistema.");
+		}else if(error!=null && error.equals("2")){
+			modelAndView.addObject("errorMsg","El Email ya existe en el sistema.");			
+		}
 		modelAndView.setViewName("admin/register");
 		return modelAndView;
 	}
 	
 	@RequestMapping(value="/addUser", method = RequestMethod.POST)
-	public ModelAndView addUser(@ModelAttribute UsuarioDto usuarioDto,BindingResult bindingResult){
+	public ModelAndView addUser(@ModelAttribute UsuarioDto usuarioDto,@RequestParam (value="error",required = false)  Boolean  error,BindingResult bindingResult){
 		ModelAndView modelAndView = new ModelAndView();
 		RolDto rol = new RolDto(); 
-		if(usuarioDto.getRol().getNombre().equals("reclutador")) {
+		if(usuarioDto.getReclutador()!=null) {
 			rol.setId(new Long(2));
 		}else {
 			rol.setId(new Long(3));			
 		}
 		usuarioDto.setRol(rol);
-		usuarioService.saveUser(usuarioDto);
-		modelAndView.setViewName("home");
+		UsuarioDto usr= usuarioService.findByUsuario(usuarioDto.getUsuario());
+		UsuarioDto user= usuarioService.findByEmail(usuarioDto.getEmail());
+		if(usr.getUsuario()!=null){
+			modelAndView.addObject("error","1");
+			modelAndView.setViewName("redirect:/register");
+		}else if(user.getEmail()!=null){
+			modelAndView.addObject("error","2");
+			modelAndView.setViewName("redirect:/register");
+		}else{
+			usuarioService.saveUser(usuarioDto);
+			modelAndView.setViewName("redirect:/login");
+		}
 		return modelAndView;
 	}
 	
-	
+	@RequestMapping(value="/getUser", method = RequestMethod.POST)
+	public UsuarioDto getUser(@RequestParam("email") String email ,@RequestParam("usuario") String usuario,BindingResult bindingResult){
+		UsuarioDto user= usuarioService.findByEmail(email);
+		return user;
+	}
 }

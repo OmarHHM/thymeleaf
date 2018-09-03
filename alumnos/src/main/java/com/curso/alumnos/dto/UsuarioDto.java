@@ -16,7 +16,7 @@ public class UsuarioDto {
 	private String perfil;
 	
 	private RolDto rol;
-	
+	private String reclutador;
 	
 	public String getNombre() {
 		return nombre;
@@ -80,6 +80,14 @@ public class UsuarioDto {
 
 	public void setPerfil(String perfil) {
 		this.perfil = perfil;
+	}
+
+	public String getReclutador() {
+		return reclutador;
+	}
+
+	public void setReclutador(String reclutador) {
+		this.reclutador = reclutador;
 	}
 	
 	

@@ -27,18 +27,19 @@ public class UsuarioDaoImpl extends GenericDao implements UsuarioDao {
 
 	@Override
 	public UsuarioDto findByUsuario(String username) {
-		System.out.println("username>>>>>>"+username);
-		
+		UsuarioDto usuarioDto = new UsuarioDto();
+		RolDto rolDto = new RolDto();
 		Query q = entityManager.createQuery(
 				"SELECT e FROM UsuarioEntity e WHERE e.usuario = :username");
 			q.setParameter("username", username);
+		try{	
 			UsuarioEntity usuarioEntity = (UsuarioEntity)q.getSingleResult();
-		UsuarioDto usuarioDto = new UsuarioDto();
-		RolDto rolDto = new RolDto();
-		BeanUtils.copyProperties(usuarioEntity, usuarioDto);
-		BeanUtils.copyProperties(usuarioEntity.getRol(), rolDto);
-		usuarioDto.setRol(rolDto);
-		
+			BeanUtils.copyProperties(usuarioEntity, usuarioDto);
+			BeanUtils.copyProperties(usuarioEntity.getRol(), rolDto);
+			usuarioDto.setRol(rolDto);
+		}catch(Exception e ){
+			System.out.println("Error al consultar por usuario.>> "+e);
+		}
 		return usuarioDto;
 	}
 
@@ -75,6 +76,26 @@ public class UsuarioDaoImpl extends GenericDao implements UsuarioDao {
 				listUsuarioDto.add(usuarioDto);
 			}
 			return listUsuarioDto;
+	}
+
+	@Override
+	public UsuarioDto findByEmail(String emailUser) {
+		UsuarioDto usuarioDto = new UsuarioDto();
+		RolDto rolDto = new RolDto();
+		Query q = entityManager.createQuery(
+				"SELECT e FROM UsuarioEntity e WHERE e.email = :emailUser");
+			q.setParameter("emailUser", emailUser);
+		try{
+			UsuarioEntity usuarioEntity = (UsuarioEntity)q.getSingleResult();
+			BeanUtils.copyProperties(usuarioEntity, usuarioDto);
+			BeanUtils.copyProperties(usuarioEntity.getRol(), rolDto);
+			usuarioDto.setRol(rolDto);
+			
+		}catch(Exception e ){
+			System.out.println("Error al consultar por usuario.>> "+e);
+		}
+		
+		return usuarioDto;
 	}
 
 }

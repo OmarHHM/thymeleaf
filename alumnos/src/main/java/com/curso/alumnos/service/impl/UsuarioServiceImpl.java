@@ -37,6 +37,23 @@ public class UsuarioServiceImpl implements UsuarioService{
 	public List<UsuarioDto> getUsuarios(Long rol_id){
 		return this.usuarioDao.getUsuarios(rol_id);
 	}
+
+	@Override
+	public UsuarioDto findByEmail(String email) {
+		UsuarioDto dto = new UsuarioDto();
+		try{
+			dto=usuarioDao.findByEmail(email);
+		}catch(Exception e){
+			System.out.println("Error al consultar usuario por email. "+e);
+		}
+		return dto;
+	}
+
+	@Override
+	public UsuarioDto findByUsuario(String username) {
+		UsuarioDto dto= usuarioDao.findByUsuario(username);
+		return dto;
+	}
 	
 	
 

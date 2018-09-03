@@ -22,20 +22,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Autowired
 	private UsuarioDao usuarioDao;
-	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
-		 System.out.println(bCryptPasswordEncoder.encode("123"));	
 		 UsuarioDto usuarioDto = usuarioDao.findByUsuario(username);
+		 
 		 Set<GrantedAuthority> grantedAuthorities = new HashSet();
 		 grantedAuthorities.add(new SimpleGrantedAuthority(usuarioDto.getRol().getNombre()));
-		 
-		User user = new User(usuarioDto.getUsuario(),usuarioDto.getPassword(), grantedAuthorities);
-		return user;
+		 User user = new User(usuarioDto.getUsuario(),usuarioDto.getPassword(), grantedAuthorities);
+		
+		 return user;
 	}
 
 	

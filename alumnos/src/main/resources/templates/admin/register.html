@@ -10,39 +10,34 @@
 </head>
 <body>
 <div id="wrap">
-<!--      <div th:replace="admin/templates :: navbar"></div>-->
-
     <div class="container">
-
         <div class="row">
-
-
             <div class="col-md-6 col-md-offset-3">
                 <form th:action="@{/addUser}"  method="post" accept-charset="utf-8" class="form" role="form">
                     <legend>Registro</legend>
                     <div class="row">
                      <div>
-									 <input type="text" name="usuario"
+									 <input type="text" name="usuario" th:required="required"
                                    class="form-control input-lg"
                                    placeholder="Username"  autofocus="true"/>
 
                      </div>
                     <div>
 <!--                          <div th:class="${#fields.hasErrors('firstName')}? 'col-xs-6 col-md-6 has-error': 'col-xs-6 col-md-6'"> -->
-                            <input type="text" name="nombre"
+                            <input type="text" name="nombre" th:required="required"
                                 
                                    class="form-control input-lg"
                                    placeholder="First Name"/>
                         </div>
 <!--                          <div th:class="${#fields.hasErrors('lastName')}? 'col-xs-6 col-md-6 has-error': 'col-xs-6 col-md-6'"> -->  
                     	<div>
-                            <input type="text" name="apellidoPaterno"
+                            <input type="text" name="apellido1" th:required="required"
                                   
                                    class="form-control input-lg"
                                    placeholder="Last Name1"  />
                         </div>
 <div>
-                            <input type="text" name="apellidoMaterno"
+                            <input type="text" name="apellido2"
                                   
                                    class="form-control input-lg"
                                    placeholder="Last Name2"  />
@@ -51,45 +46,46 @@
                    
 <!--                      <div th:class="${#fields.hasErrors('email')}? 'has-error'"> -->
                        <div>
-                        <input type="text" name="email"
+                        <input type="text" name="email" th:required="required"
                          
                            class="form-control input-lg"
                            placeholder="Your Email"  autocomplete="false"/>
                     </div>
 <!--                      <div th:class="${#fields.hasErrors('password')}? 'has-error'">-->
                     <div>
-                    <input type="password" name="password"
+                    <input type="password" name="password" th:required="required"
                            class="form-control input-lg"
                            placeholder="Password"
                            autocomplete="false"/>
                     </div>
                     <div>
-                    <input type="password" name="confirm_password"
+                    <input type="password" name="confirm_password" th:required="required"
                            class="form-control input-lg"
                            placeholder="Confirm Password"
                            autocomplete="false"/>
                      </div>  
                      <div class="radio">
-                     	  <label><input type="radio" name="rol" id="rol" />Soy Reclutador</label>
+                     	  <label><input type="radio" name="reclutador" id="reclutador" />Soy Reclutador</label>
 					</div>	
 					<div class="radio">                    
-                     	  <label><input type="radio" name="rol" id="rol"/>Soy Candidato</label>
+                     	  <label><input type="radio" name="candidato" id="candidato"/>Soy Candidato</label>
                     </div>
                     <br />
                     <span class="help-block">Al hacer clic en Crear mi cuenta, acepta nuestros Términos y que ha leído nuestra Política de uso de datos, incluido nuestro Uso de cookies.</span>
                     <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
                         Crear mi cuenta</button>
                    </div>
+                   
+                   	<div align="center" >
+                   		<span style="font-size: 20; color: #FF1C19;" th:text="${errorMsg}"></span>
+    				</div>
+    				
                 </form>
             </div>
         </div>
     </div>
 </div>
-<!--  <div th:replace="templates :: footer"></div>-->
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

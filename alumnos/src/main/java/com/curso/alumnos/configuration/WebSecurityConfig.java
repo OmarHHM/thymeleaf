@@ -36,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/resources/**").permitAll()
 			.antMatchers("/h2-console").permitAll()
 			.antMatchers("/register").permitAll()
+			.antMatchers("/addUser").permitAll()
 			.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/alumnos/**").access("hasAnyRole('ROLE_ADMIN', 'ROLE_ALUMNOS')")
 			.antMatchers("/profesor/**").access("hasAnyRole('ROLE_ADMIN', 'ROLE_PROFESOR')")
@@ -57,6 +58,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure (WebSecurity web) throws Exception{
 		web
 		.ignoring()
-		.antMatchers("/resources/**","/static/**","/css/**","/js/**","/images/**","/h2-console/**","/register/**");
+		.antMatchers("/resources/**","/static/**","/css/**","/js/**","/images/**","/h2-console/**","/register/**","/addUser/**");
 	}
 }
