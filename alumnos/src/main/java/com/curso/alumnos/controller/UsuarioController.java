@@ -9,15 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.curso.alumnos.dto.RolDto;
 import com.curso.alumnos.dto.UsuarioDto;
 import com.curso.alumnos.service.impl.RolServiceImpl;
 import com.curso.alumnos.service.impl.UsuarioServiceImpl;
+
 
 @RestController
 public class UsuarioController {
@@ -66,7 +69,6 @@ public class UsuarioController {
 	public ModelAndView viewListAdmin(){
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("admin/viewListUser");
-		//obtenemos los usuarios que sean del tipo estudiante
 		modelAndView.addObject("listUsers",usuarioService.getUsuarios(1L));
 		return modelAndView;
 	}
@@ -116,4 +118,21 @@ public class UsuarioController {
 		modelAndView.setViewName("admin/register");
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/addUser", method = RequestMethod.POST)
+	public ModelAndView addUser(@ModelAttribute UsuarioDto usuarioDto,BindingResult bindingResult){
+		ModelAndView modelAndView = new ModelAndView();
+		RolDto rol = new RolDto(); 
+		if(usuarioDto.getRol().getNombre().equals("reclutador")) {
+			rol.setId(new Long(2));
+		}else {
+			rol.setId(new Long(3));			
+		}
+		usuarioDto.setRol(rol);
+		usuarioService.saveUser(usuarioDto);
+		modelAndView.setViewName("home");
+		return modelAndView;
+	}
+	
+	
 }

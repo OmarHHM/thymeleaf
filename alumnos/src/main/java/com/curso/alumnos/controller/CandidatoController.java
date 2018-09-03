@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.curso.alumnos.dto.*;
 
-@RestController
+//@RestController
 public class CandidatoController {
 
 	
