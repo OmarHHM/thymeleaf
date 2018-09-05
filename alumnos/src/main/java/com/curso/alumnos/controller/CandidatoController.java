@@ -10,35 +10,44 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.curso.alumnos.dto.*;
 
-//@RestController
+@RestController
 public class CandidatoController {
 
 	
-	@RequestMapping(value={"/", "/candidate"}, method = RequestMethod.GET)
-	public ModelAndView candidate(){
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("candidato/candidate");
-		return modelAndView;
-	}
-	
-	@RequestMapping(value={"/", "/addCandidate"}, method = RequestMethod.POST)
+	@RequestMapping(value={"/candidates/addCandidate"}, method = RequestMethod.POST)
 	public void addCandidate (){
 		
 	}
 	
-	@RequestMapping(value={"/", "/updateCandidate"}, method = RequestMethod.POST)
+	@RequestMapping(value={"/candidates/updateCandidate"}, method = RequestMethod.POST)
 	public void updateCandidate (){
 		
 	}
 	
-	@RequestMapping(value={"/", "/getCandidate"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/candidates/getCandidate"}, method = RequestMethod.GET)
 	public Candidato getCandidate (){
 		return new Candidato();
 	}
 	
-	@RequestMapping(value={"/", "/listCandidate"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/candidates/listCandidate"}, method = RequestMethod.GET)
 	public List<Candidato> listCandidate (){
 		ArrayList<Candidato> candi= new ArrayList();
 		return candi;
 	}
+	
+	@RequestMapping(value={"/candidates/profile"}, method = RequestMethod.GET)
+	public ModelAndView getProfile(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("admin/user");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/photo"}, method = RequestMethod.GET)
+	public ModelAndView photo(){
+		System.out.println("aqui si llega ");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("admin/photo");
+		return modelAndView;
+	}
+	
 }

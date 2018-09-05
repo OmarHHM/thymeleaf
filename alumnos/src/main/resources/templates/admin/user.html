@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76"  th:href="@{/images/apple-icon.png}"/>
+  <link rel="icon" type="image/png"  th:href="@{/images/favicon.png}"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Material Dashboard by Creative Tim
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+  <!-- CSS Files -->
+  <link th:href="@{/css/material-dashboard.css?v=2.1.0}" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link th:href="@{/css/demo.css}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+  <link th:href="@{/css/profile.css}" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" th:data-image="@{/images/sidebar-1.jpg}">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Creative Tim
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item  ">
+            <a class="nav-link" th:href="@{/dashboard.html}">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item active ">
+            <a class="nav-link" th:href="@{/admin/user.html}">
+              <i class="material-icons">person</i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" th:href="@{/admin/tables.html}">
+              <i class="material-icons">content_paste</i>
+              <p>Table List</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" th:href="@{/admin/typography.html}">
+              <i class="material-icons">library_books</i>
+              <p>Typography</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" th:href="@{/admin/icons.html}">
+              <i class="material-icons">bubble_chart</i>
+              <p>Icons</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" th:href="@{/admin/map.html}">
+              <i class="material-icons">location_ons</i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" th:href="@{/admin/notifications.html}">
+              <i class="material-icons">notifications</i>
+              <p>Notifications</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" th:href="@{/admin/rtl.html}">
+              <i class="material-icons">language</i>
+              <p>RTL Support</p>
+            </a>
+          </li>
+          <li class="nav-item active-pro ">
+                <a class="nav-link" th:href="@{/admin/upgrade.html}">
+                    <i class="material-icons">unarchive</i>
+                    <p>Upgrade to PRO</p>
+                </a>
+            </li> 
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="#pablo">Perfil</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <form class="navbar-form">
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search..." />
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                  <i class="material-icons">dashboard</i>
+                  <p class="d-lg-none d-md-block">
+                    Stats
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">notifications</i>
+                  <span class="notification">5</span>
+                  <p class="d-lg-none d-md-block">
+                    Some Actions
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                  <a class="dropdown-item" href="#">Another Notification</a>
+                  <a class="dropdown-item" href="#">Another One</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Editar Perfil</h4>
+                  <p class="card-category">Completa tu perfil</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <!--  <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Company (disabled)</label>
+                          <input type="text" class="form-control"  />
+                        </div>
+                      </div>-->
+                      
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Nombre</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Apellido Paterno</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Apellido Materno</label>
+                          <input type="text" class="form-control" />
+                       </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Correo</label>
+                          <input type="email" class="form-control" />
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Teléfono</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <select  class="form-control" >
+								<option value="">Seleccione Género</option>
+                          		<option value="H">Masculino</option>
+  								<option value="M">Femenino</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Dirección completa (Calle/#/Colonia/Delegación o Municipio/Estado/País/CodigoPostal)</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Edad</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Titulo</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <select  class="form-control" >
+								<option value="">Seleccione Estado Civil</option>
+                          		<option value="C">Casad@</option>
+  								<option value="S">Solter@</option>
+  								<option value="U">Union Libre</option>
+  								<option value="V">Viud@</option>
+  								<option value="D">Divorciad@</option>
+                          </select>
+                        </div>
+                      </div>
+                       <div class="col-md-4">
+                        <div class="form-group">
+                          <select  class="form-control" >
+								<option value="">Seleccione Rango Salarial Mensual</option>
+                          		<option value="1">5000k-10000k</option>
+  								<option value="2">10000k-15000k</option>
+  								<option value="3">15000k-20000k</option>
+  								<option value="4">20000k-25000k</option>
+  								<option value="5">25000k-30000k</option>
+  								<option value="6">30000k-35000k</option>
+  								<option value="7">35000k-40000k</option>
+  								<option value="8">40000k-45000k</option>
+  								<option value="9">45000k-50000k</option>
+  								<option value="10">50000k-55000k</option>
+  								<option value="11">55000k-60000k</option>
+  								<option value="12">60000k-65000k</option>
+  								<option value="13">65000k-70000k</option>
+  								<option value="14">75000k-80000k</option>
+  								<option value="15">80000k-85000k</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4">	
+							<div class="form-group">
+								<select  class="form-control" >
+								<option value="">Seleccione Área de Intéres</option>
+								<option value="1">Empresarial - Informática/ Internet/ Web</option>
+  								<option value="2">Empresarial - Logística/ Depósito</option>
+  								<option value="3">Empresarial - Marketing (o Mercadeo)</option>
+  								<option value="4">Empresarial - Producción y afines</option>
+  								<option value="5">Empresarial - Seguridad</option>
+  								<option value="6">Empresarial - Ventas/ Comercio/ Telemarketing</option>
+  								<option value="7">Profesional - Diseño Gráfico / Industrial</option>
+  								<option value="8">Sectorial - Construcción Civil *</option>
+  								<option value="9">Sectorial - Ingeniería Civil</option>
+  								<option value="10">Sectorial - Ingeniería Industrial</option>
+								</select>
+							</div>
+						</div>
+                      
+                    </div>
+                     <div class="row">
+                        <div class="col-md-4">
+	                     <div class="form-group">
+    	                 	<div class="form-check-inline">
+  								<label class="form-check-label">
+    							<input type="checkbox" class="form-check-input" name="disponibilidad" />Disponibilidad para viajar
+ 								</label>
+							</div>
+						</div>
+						</div>
+						<div class="col-md-4">	
+						<div class="form-group">
+						<div  class="form-check-inline">
+							<label class="form-check-label">
+    						<input type="checkbox" class="form-check-input" name="reubicacion" />Dispobilidad para reubicación
+  							</label>
+						</div>
+						</div>
+						</div>
+                     </div>
+                     <div class="row">	
+                     	 <div class="col-md-12">	
+							<div class="form-group">
+								<label class="bmd-label-floating">Razón por la que buscas un cambio</label>
+                        	    <textarea class="form-control" rows="2"></textarea>
+							</div>
+                     	</div>
+                     </div>
+                    
+                      <div class="row">
+                         <div class="col-md-4">
+                        	<div class="form-group">
+                        		<label class="bmd-label-floating">URL Facebook</label>
+                        		  <input type="text" class="form-control" />
+                        	</div>
+                      	 </div>
+                      	 <div class="col-md-4">
+                        	<div class="form-group">
+                        		<label class="bmd-label-floating">URL Linkedin</label>
+                        		  <input type="text" class="form-control" />
+                        	</div>
+                      	 </div>
+                      	 <div class="col-md-4">
+                        	<div class="form-group">
+                        		<label class="bmd-label-floating">URL Youtube</label>
+                        		  <input type="text" class="form-control" />
+                        	</div>
+                      	 </div>
+                      	 </div>
+                         <div class="row">
+                      	 <div class="col-md-4">
+                        	<div class="form-group">
+                        		<label class="bmd-label-floating">URL Sitio Web</label>
+                        		  <input type="text" class="form-control" />
+                        	</div>
+                      	 </div>
+                      	 <div class="col-md-4">
+                        	<div class="form-group">
+                        		<label class="bmd-label-floating">URL Otros</label>
+                        		  <input type="text" class="form-control" />
+                        	</div>
+                      	 </div>
+                       </div>
+                    
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>A cerca de Mi</label>
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Describe brevemente acerca de ti.</label>
+                            <textarea class="form-control" rows="5"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Modificar Perfil</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+            	<div class="card card-profile">
+              		
+				        <div class="avatar-upload">
+				            <div class="avatar-edit">
+				                <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg"/>
+				                <label for="imageUpload"></label>
+				            </div>
+				            <div class="avatar-preview">
+				                <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+				                </div>
+				            </div>
+				        </div>
+              		<!--  
+              		<div class="card-avatar">
+                	  <a href="#pablo">
+                	    <img class="img" th:src="@{/images/faces/marc.jpg}" />
+                	  </a>
+                	</div> 
+                -->
+                <div class="card-body">
+                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                  <h4 class="card-title">Alec Thompson</h4>
+                  <p class="card-description">
+                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                  </p>
+<!--                    <a href="#pablo" class="btn btn-primary btn-round">Follow</a>-->
+                </div>
+              </div>
+            </div>-->
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container-fluid">
+           <div class="copyright float-right">
+            &copy;
+            <script>
+              document.write("OmarHdez ",new Date().getFullYear())
+            </script>, Designed and created by Omar Hernández.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script th:src="@{/js/core/jquery.min.js}" type="text/javascript"></script>
+  <script th:src="@{/js/core/popper.min.js}" type="text/javascript"></script>
+  <script th:src="@{/js/core/bootstrap-material-design.min.js}" type="text/javascript"></script>
+  <script th:src="@{/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script th:src="@{/js/plugins/chartist.min.js}"></script>
+  <!--  Notifications Plugin    -->
+  <script th:src="@{/js/plugins/bootstrap-notify.js}"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script th:src="@{/js/material-dashboard.min.js?v=2.1.0}" type="text/javascript"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script th:src="@{/js/demo.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script th:src="@{/js/profile.js}"></script>
+
+</body>
+
+</html>

@@ -10,33 +10,32 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.curso.alumnos.dto.Reclutador;
 
-//@RestController
+@RestController
 public class ReclutadorController {
 
-	
-	@RequestMapping(value={"/", "/recruiter"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/recluiters/profile"}, method = RequestMethod.GET)
 	public ModelAndView recluiter(){
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("recluit/recluiter");
+		modelAndView.setViewName("/admin/recluiter");
 		return modelAndView;
 	}
 	
-	@RequestMapping(value={"/", "/addRecluiter"}, method = RequestMethod.POST)
+	@RequestMapping(value={"/recluiters/addRecluiter"}, method = RequestMethod.POST)
 	public void addRecluiter (){
 		
 	}
 	
-	@RequestMapping(value={"/", "/updateRecluiter"}, method = RequestMethod.POST)
+	@RequestMapping(value={"/recluiters/updateRecluiter"}, method = RequestMethod.POST)
 	public void updateRecluiter (){
 		
 	}
 	
-	@RequestMapping(value={"/", "/getRecluiter"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/recluuiter/getRecluiter"}, method = RequestMethod.GET)
 	public Reclutador getRecluiter (){
 		return new Reclutador();
 	}
 	
-	@RequestMapping(value={"/", "/listRecluiter"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/recluiters/listRecluiter"}, method = RequestMethod.GET)
 	public List<Reclutador> listRecluiter (){
 		ArrayList<Reclutador> reclu= new ArrayList();
 		return reclu;

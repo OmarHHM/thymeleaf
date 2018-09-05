@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.passwordParameter("password")
 			.loginProcessingUrl("/j_spring_security_check")
 			.loginPage("/login").failureUrl("/login?error=true")
-			.defaultSuccessUrl("/home")
+			.defaultSuccessUrl("/dashboard")
 			.permitAll()
 			.and()
 			.logout()
@@ -58,6 +58,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure (WebSecurity web) throws Exception{
 		web
 		.ignoring()
-		.antMatchers("/resources/**","/static/**","/css/**","/js/**","/images/**","/h2-console/**","/register/**","/addUser/**");
+		.antMatchers("/resources/**","/static/**","/css/**","/js/**","/images/**","/h2-console/**","/register/**","/addUser/**","/fonts/**","/scss/**");
 	}
 }
