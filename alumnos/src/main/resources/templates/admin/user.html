@@ -165,32 +165,24 @@ xmlns:th="http://www.thymeleaf.org">
                   <p class="card-category">Completa tu perfil</p>
                 </div>
                 <div class="card-body">
-                  <form>
+                  <form   th:action="@{/candidates/updateProfile}"  method="POST" accept-charset="utf-8" class="form" role="form">
                     <div class="row">
-                      <!--  <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Company (disabled)</label>
-                          <input type="text" class="form-control"  />
-                        </div>
-                      </div>-->
-                      
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nombre</label>
-                          <input type="text" class="form-control" />
+                          <input type="text" name="nombre" class="form-control" th:required="required" />
                         </div>
                       </div>
-                      
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Apellido Paterno</label>
-                          <input type="text" class="form-control" />
+                          <input type="text" name="apellido_paterno" class="form-control" th:required="required" />
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Apellido Materno</label>
-                          <input type="text" class="form-control" />
+                          <input type="text" name="apellido_materno" class="form-control" />
                        </div>
                       </div>
                     </div>
@@ -198,20 +190,20 @@ xmlns:th="http://www.thymeleaf.org">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Correo</label>
-                          <input type="email" class="form-control" />
+                          <input type="email" class="form-control" th:disabled="disabled"/>
                         </div>
                       </div>
                       
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">Teléfono</label>
-                          <input type="text" class="form-control" />
+                          <input type="text" class="form-control" name="telefono" th:required="required"/>
                         </div>
                       </div>
                       
                       <div class="col-md-3">
                         <div class="form-group">
-                          <select  class="form-control" >
+                          <select  name="genero"  class="form-control" th:required="required" >
 								<option value="">Seleccione Género</option>
                           		<option value="H">Masculino</option>
   								<option value="M">Femenino</option>
@@ -238,7 +230,7 @@ xmlns:th="http://www.thymeleaf.org">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Titulo</label>
-                          <input type="text" class="form-control" />
+                          <input type="text" class="form-control" th:required="required" name="titulo" />
                         </div>
                       </div>
                     </div>
@@ -372,6 +364,10 @@ xmlns:th="http://www.thymeleaf.org">
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary pull-right">Modificar Perfil</button>
+                    <input type="hidden" name="foto"/>
+                 	
+                 	<input type="hidden" name="usuarioNombre" th:value="${authentication.username}" />
+                    
                     <div class="clearfix"></div>
                   </form>
                 </div>
@@ -382,7 +378,7 @@ xmlns:th="http://www.thymeleaf.org">
               		
 				        <div class="avatar-upload">
 				            <div class="avatar-edit">
-				                <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg"/>
+				                <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="photo"/>
 				                <label for="imageUpload"></label>
 				            </div>
 				            <div class="avatar-preview">

@@ -3,25 +3,41 @@ package com.curso.alumnos.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.curso.alumnos.dto.*;
+import com.curso.alumnos.service.CandidatoService;
 
 @RestController
 public class CandidatoController {
 
+	@Autowired 
+	private CandidatoService candidatoService;
 	
 	@RequestMapping(value={"/candidates/addCandidate"}, method = RequestMethod.POST)
-	public void addCandidate (){
+	public void addCandidate (@ModelAttribute Candidato candidato){
 		
 	}
 	
-	@RequestMapping(value={"/candidates/updateCandidate"}, method = RequestMethod.POST)
-	public void updateCandidate (){
+	@RequestMapping(value={"/candidates/updateProfile"}, method = RequestMethod.POST)
+	public ModelAndView updateCandidate (@ModelAttribute Candidato candidato ){
+		ModelAndView modelAndView = new ModelAndView();
+		try {
+			candidatoService.saveCandidato(candidato);
+			modelAndView.addObject("exito","Pefil actualizado exitosamente");
+			
+		}catch(Exception e ){
+			System.out.println("Error al guardar candidato>> "+e);
+			modelAndView.addObject("error", "Error al actualizar perfil");
+		}
 		
+		modelAndView.setViewName("admin/user");
+		return modelAndView;
 	}
 	
 	@RequestMapping(value={"/candidates/getCandidate"}, method = RequestMethod.GET)

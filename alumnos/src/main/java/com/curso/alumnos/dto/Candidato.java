@@ -34,7 +34,7 @@ public class Candidato {
 	private String genero;
 
 	@Column(name = "foto")
-	private String foto;
+	private byte[] foto;
 	
 
 	@Column(name = "telefono", length=10,nullable=false)
@@ -90,10 +90,11 @@ public class Candidato {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public String getFoto() {
+	
+	public byte[] getFoto() {
 		return foto;
 	}
-	public void setFoto(String foto) {
+	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
 	@Override
