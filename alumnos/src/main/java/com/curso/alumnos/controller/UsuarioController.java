@@ -153,8 +153,8 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value="/getUser", method = RequestMethod.POST)
-	public UsuarioDto getUser(@RequestParam("email") String email ,@RequestParam("usuario") String usuario,BindingResult bindingResult){
-		UsuarioDto user= usuarioService.findByEmail(email);
+	public UsuarioDto getUser(@RequestParam("usuario") String usuario,BindingResult bindingResult){
+		UsuarioDto user=usuarioService.findByUsuario(usuario);
 		return user;
 	}
 	

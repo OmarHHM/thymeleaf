@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
-xmlns:th="http://www.thymeleaf.org">
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head>
   <meta charset="utf-8" />
@@ -365,8 +366,8 @@ xmlns:th="http://www.thymeleaf.org">
                     </div>
                     <button type="submit" class="btn btn-primary pull-right">Modificar Perfil</button>
                     <input type="hidden" name="foto"/>
-                 	
-                 	<input type="hidden" name="usuarioNombre" th:value="${authentication.username}" />
+                 	<div sec:authentication="name" id="usuarionombre">
+                 	</div>
                     
                     <div class="clearfix"></div>
                   </form>
@@ -402,7 +403,7 @@ xmlns:th="http://www.thymeleaf.org">
 <!--                    <a href="#pablo" class="btn btn-primary btn-round">Follow</a>-->
                 </div>
               </div>
-            </div>-->
+            </div>
           </div>
         </div>
       </div>
