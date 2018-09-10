@@ -1,6 +1,3 @@
-document.getElementById('usuarionombre').style.visibility = "hidden";
-var divElement = document.getElementById('usuarionombre'); 
-
 
 consultaPerfil();
 function readURL(input) {
@@ -21,12 +18,22 @@ $("#imageUpload").change(function() {
 
 
 function consultaPerfil(){
-	var complemento=divElement.innerHTML;
-	var url="http://localhost:8080/getUser"+"?usuario="complemento;
+	var userName = document.getElementById('usuarionombre'); 
+	var url="/getUser"+"?usuario="+userName.innerHTML;
 	
-	$.get(url, function( data ) {
-		  alert(data.id):
-		});
+	$.get(url, function(data) {
+		if(data!=null){
+			$('#nombre').val(data.nombre);
+			$('#apellido_paterno').val(data.apellido1);
+			$('#apellido_materno').val(data.apellido2);
+			$('#email').val(data.email);
+		}else{
+			$('#nombre').value("");
+			$('#apellido_paterno').val("");
+			$('#apellido_materno').val("");
+			$('#email').val("");
+		}	
+	});
 }
 
 

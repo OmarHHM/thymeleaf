@@ -25,10 +25,28 @@ public class CandidatoController {
 	}
 	
 	@RequestMapping(value={"/candidates/updateProfile"}, method = RequestMethod.POST)
-	public ModelAndView updateCandidate (@ModelAttribute Candidato candidato ){
+	public ModelAndView updateCandidate (@ModelAttribute Candidato candidato,@ModelAttribute DatosCandidato datosCandidato ){
 		ModelAndView modelAndView = new ModelAndView();
 		try {
-			candidatoService.saveCandidato(candidato);
+			System.out.println(candidato.getApellido_materno());
+			System.out.println(candidato.getApellido_paterno());
+			System.out.println(candidato.getDomicilio());
+			System.out.println(candidato.getEdad());
+			System.out.println(candidato.getGenero());
+			System.out.println(candidato.getNombre());
+			System.out.println(candidato.getTelefono());
+			System.out.println(candidato.getFoto());
+			
+			
+			System.out.println(datosCandidato.getDisponibleVaiaje());
+			System.out.println(datosCandidato.getEstatusTrabajo());
+			System.out.println(datosCandidato.getIdArea());
+			System.out.println(datosCandidato.getIdRangoSalarial());
+			System.out.println(datosCandidato.getRazonCambio());
+			System.out.println(datosCandidato.getReubicacion());
+			
+			
+			candidatoService.saveCandidato(candidato,datosCandidato);
 			modelAndView.addObject("exito","Pefil actualizado exitosamente");
 			
 		}catch(Exception e ){

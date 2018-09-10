@@ -171,19 +171,19 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nombre</label>
-                          <input type="text" name="nombre" class="form-control" th:required="required" />
+                          <input type="text" id="nombre" name="nombre" class="form-control" th:required="required" />
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Apellido Paterno</label>
-                          <input type="text" name="apellido_paterno" class="form-control" th:required="required" />
+                          <input type="text" id="apellido_paterno" name="apellido_paterno" class="form-control" th:required="required" />
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Apellido Materno</label>
-                          <input type="text" name="apellido_materno" class="form-control" />
+                          <input type="text" id="apellido_materno" name="apellido_materno" class="form-control" />
                        </div>
                       </div>
                     </div>
@@ -191,20 +191,20 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Correo</label>
-                          <input type="email" class="form-control" th:disabled="disabled"/>
+                          <input type="email" id="email" class="form-control" />
                         </div>
                       </div>
                       
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">Teléfono</label>
-                          <input type="text" class="form-control" name="telefono" th:required="required"/>
+                          <input type="text" class="form-control" name="telefono" id="telefono" th:required="required"/>
                         </div>
                       </div>
                       
                       <div class="col-md-3">
                         <div class="form-group">
-                          <select  name="genero"  class="form-control" th:required="required" >
+                          <select id="genero" name="genero"  class="form-control" th:required="required" >
 								<option value="">Seleccione Género</option>
                           		<option value="H">Masculino</option>
   								<option value="M">Femenino</option>
@@ -217,7 +217,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Dirección completa (Calle/#/Colonia/Delegación o Municipio/Estado/País/CodigoPostal)</label>
-                          <input type="text" class="form-control" />
+                          <input id="domicilio" name="domicilio" type="text" class="form-control" />
                         </div>
                       </div>
                     </div>
@@ -225,20 +225,20 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                       <div class="col-md-2">
                         <div class="form-group">
                           <label class="bmd-label-floating">Edad</label>
-                          <input type="text" class="form-control" />
+                          <input type="text" class="form-control" id="edad" name="edad" />
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Titulo</label>
-                          <input type="text" class="form-control" th:required="required" name="titulo" />
+                          <input type="text" class="form-control" th:required="required" id="titulo" name="titulo" />
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                          <select  class="form-control" >
+                          <select  class="form-control"  >
 								<option value="">Seleccione Estado Civil</option>
                           		<option value="C">Casad@</option>
   								<option value="S">Solter@</option>
@@ -250,7 +250,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                       </div>
                        <div class="col-md-4">
                         <div class="form-group">
-                          <select  class="form-control" >
+                          <select id="idRangoSalarial" name="idRangoSalarial" class="form-control" >
 								<option value="">Seleccione Rango Salarial Mensual</option>
                           		<option value="1">5000k-10000k</option>
   								<option value="2">10000k-15000k</option>
@@ -272,7 +272,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                       </div>
                       <div class="col-md-4">	
 							<div class="form-group">
-								<select  class="form-control" >
+								<select id="idArea" name="idArea" class="form-control" >
 								<option value="">Seleccione Área de Intéres</option>
 								<option value="1">Empresarial - Informática/ Internet/ Web</option>
   								<option value="2">Empresarial - Logística/ Depósito</option>
@@ -294,7 +294,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 	                     <div class="form-group">
     	                 	<div class="form-check-inline">
   								<label class="form-check-label">
-    							<input type="checkbox" class="form-check-input" name="disponibilidad" />Disponibilidad para viajar
+    							<input type="checkbox" class="form-check-input" name="disponibleVaiaje" id="disponibleVaiaje" />Disponibilidad para viajar
  								</label>
 							</div>
 						</div>
@@ -303,7 +303,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 						<div class="form-group">
 						<div  class="form-check-inline">
 							<label class="form-check-label">
-    						<input type="checkbox" class="form-check-input" name="reubicacion" />Dispobilidad para reubicación
+    						<input type="checkbox" class="form-check-input" name="reubicacion" id="reubicacion"/>Dispobilidad para reubicación
   							</label>
 						</div>
 						</div>
@@ -313,7 +313,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                      	 <div class="col-md-12">	
 							<div class="form-group">
 								<label class="bmd-label-floating">Razón por la que buscas un cambio</label>
-                        	    <textarea class="form-control" rows="2"></textarea>
+                        	    <textarea id="razonCambio" name="razonCambio" class="form-control" rows="2"></textarea>
 							</div>
                      	</div>
                      </div>
@@ -322,19 +322,19 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                          <div class="col-md-4">
                         	<div class="form-group">
                         		<label class="bmd-label-floating">URL Facebook</label>
-                        		  <input type="text" class="form-control" />
+                        		  <input type="text" class="form-control" id="urlFacebook" name="urlFacebook" />
                         	</div>
                       	 </div>
                       	 <div class="col-md-4">
                         	<div class="form-group">
                         		<label class="bmd-label-floating">URL Linkedin</label>
-                        		  <input type="text" class="form-control" />
+                        		  <input  id="urlLinkedin" name="urlLinkedin" type="text" class="form-control" />
                         	</div>
                       	 </div>
                       	 <div class="col-md-4">
                         	<div class="form-group">
                         		<label class="bmd-label-floating">URL Youtube</label>
-                        		  <input type="text" class="form-control" />
+                        		  <input id="urlYoutube" name="urlYoutube" type="text" class="form-control" />
                         	</div>
                       	 </div>
                       	 </div>
@@ -342,13 +342,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                       	 <div class="col-md-4">
                         	<div class="form-group">
                         		<label class="bmd-label-floating">URL Sitio Web</label>
-                        		  <input type="text" class="form-control" />
+                        		  <input id="urlPaginaPersonal" name="urlPaginaPersonal" type="text" class="form-control" />
                         	</div>
                       	 </div>
                       	 <div class="col-md-4">
                         	<div class="form-group">
                         		<label class="bmd-label-floating">URL Otros</label>
-                        		  <input type="text" class="form-control" />
+                        		  <input id="urlOtros" name="urlOtros" type="text" class="form-control" />
                         	</div>
                       	 </div>
                        </div>
@@ -366,9 +366,9 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                     </div>
                     <button type="submit" class="btn btn-primary pull-right">Modificar Perfil</button>
                     <input type="hidden" name="foto"/>
-                 	<div sec:authentication="name" id="usuarionombre">
+                 	<div sec:authentication="name" id="usuarionombre" style="display: none;">
                  	</div>
-                    
+                
                     <div class="clearfix"></div>
                   </form>
                 </div>

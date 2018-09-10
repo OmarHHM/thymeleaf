@@ -152,8 +152,8 @@ public class UsuarioController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/getUser", method = RequestMethod.POST)
-	public UsuarioDto getUser(@RequestParam("usuario") String usuario,BindingResult bindingResult){
+	@RequestMapping(value="/getUser", method = RequestMethod.GET)
+	public UsuarioDto getUser(@RequestParam("usuario") String usuario){
 		UsuarioDto user=usuarioService.findByUsuario(usuario);
 		return user;
 	}
